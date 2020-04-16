@@ -1,13 +1,9 @@
 #include "socket.h"
 
 /**
- * Socket
- * -----------------------------------------------------
  * socket constructor.
  * preconfigure socket descritpor, and alloc some memory.
  * ------------------------------------------------------
- * self
- * @args: < void >
  */
 extern Socket_Object *Socket_ctor( void ) {
     Socket_Object *self = (Socket_Object*) malloc(sizeof(Socket_Object));
@@ -24,9 +20,8 @@ extern Socket_Object *Socket_ctor( void ) {
 
 /**
  * Setup data for connection.
- * sets ip and port, and handle with pre defined data.
+ * set up ip and port, and handle with pre defined data.
  * ---------------------------------------------------
- * @args: < void *obj , char *ip, int port>
  */
 static void set ( void * obj, char *ip, int port ) { 
     Socket_Object *self = (Socket_Object*) obj;
@@ -41,8 +36,7 @@ static void set ( void * obj, char *ip, int port ) {
 /**
  * Connect to target.
  * gets buffer to send to target.
- * -----------------------------------
- * @args: < void *obj , char *buffer>
+ * ------------------------------
  */
 static void bind_ip ( void * obj) {
     Socket_Object *self = (Socket_Object*) obj;
@@ -58,9 +52,8 @@ static void bind_ip ( void * obj) {
 }
 
 /**
- * Method to send data to target..
- * ---------------------------------------------------
- * @args: < void *obj , char *buffer>
+ * Method to send data to target.
+ * ------------------------------
  */
 static void buff_send(void * obj, char *buffer) {
     Socket_Object *self = (Socket_Object*) obj;
@@ -75,8 +68,7 @@ static void buff_send(void * obj, char *buffer) {
 
 /**
  * Method to call received data from target.
- * ---------------------------------------------------
- * @args: < void *obj >
+ * -----------------------------------------
  */
 static char *buff_recv(void *obj) {
     Socket_Object *self = (Socket_Object*) obj;
@@ -91,10 +83,9 @@ static char *buff_recv(void *obj) {
 }
 
 /**
- * destroy socket connection.
- * free memory.
- * ---------------------------
- * @args: < void *obj >
+ * Destroy socket connection.
+ * free memory and close connection.
+ * ---------------------------------
  */
 static void disconnect (void *obj) {
     Socket_Object *self = (Socket_Object*) obj;
